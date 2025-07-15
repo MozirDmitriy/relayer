@@ -1,6 +1,8 @@
 package sr25519
 
 import (
+	"encoding/hex"
+
 	tmsr25519 "github.com/cometbft/cometbft/crypto/sr25519"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 )
@@ -39,7 +41,7 @@ func (m *PrivKey) Reset() {
 }
 
 func (m *PrivKey) String() string {
-	return string(m.Bytes())
+	return hex.EncodeToString(m.Bytes())
 }
 
 func GenPrivKey() *PrivKey {
